@@ -1,12 +1,13 @@
 #! /usr/bin/env node
 import { Command } from 'commander';
+import Pack from '../package.json';
 
 const program = new Command();
 
 program
-  .name("JRkit")
+  .name(Pack.name)
   .usage(`<command> [option]`)
-  .version('1.0.0')
+  .version(Pack.version)
   .helpOption('-h,--help');
 
 program.parse(process.argv);

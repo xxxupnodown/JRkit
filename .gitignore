@@ -1,2 +1,7 @@
+# basic
 node_modules
 package-lock.json
+yarn.lock
+
+# build
+bin

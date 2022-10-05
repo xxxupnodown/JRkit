@@ -4,6 +4,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "strict": false,
     "target": "es5",
     "outDir": "./bin",
