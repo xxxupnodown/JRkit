@@ -21,3 +21,21 @@ export const rm = (path: string) => new Promise((res, rej) => {
     rej(`${Cred('can not remove "' + path + '"')} ${typeof err === 'string' ? err : JSON.stringify(err)}`);
   })
 })
+
+export const readFile = (path: string): Promise<string> => new Promise((res, rej) => {
+  fs.readFile(path, { encoding: 'utf-8' }, (err, data) => {
+    if (!err) res(data);
+    rej(`${Cred(`can't read ${path}`)} \n ${typeof err === 'string' ? err : JSON.stringify(err)}`);
+  })
+})
+
+export const copyFolder = (oldP, newP) => new Promise((res, rej) => {
+  // fs.copyFile(oldP, newP, err => {
+  //   if (!err) res('');
+  //   rej(`${Cred('can not copy "' + oldP + '"')} \n ${typeof err === 'string' ? err : JSON.stringify(err)}`);
+  // })
+  fs.cp(oldP, newP, { recursive: true }, err => {
+      if (!err) res('');
+      rej(`${Cred('can not copy "' + oldP + '"')} \n ${typeof err === 'string' ? err : JSON.stringify(err)}`);
+    })
+})
